@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ensemble-voice"
+version = "0.0.1"
+description = "Pluggable multi-STT ensemble pipeline with a first-class Judge layer."
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+dependencies = [
+  "faster-whisper>=1.0",
+  "soundfile>=0.12",
+  "numpy>=1.24",
+  "pyyaml>=6.0",
+  "langgraph>=1.0",
+]
+
+[project.optional-dependencies]
+sensevoice = ["funasr>=1.3", "torch>=2.0", "torchaudio>=2.0"]
+# reazon-nemo wheels aren't on PyPI yet; install via the git URL in README.
+llm = ["anthropic>=0.40"]
+dev = ["gtts>=2.5"]
+all = [
+  "funasr>=1.3", "torch>=2.0", "torchaudio>=2.0",
+  "anthropic>=0.40",
+]
+
+[project.scripts]
+ensemble-voice = "ensemble_voice.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]

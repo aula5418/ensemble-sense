@@ -1,0 +1,28 @@
+# 4-engine ensemble with LLM Judge backed by the local `claude` CLI.
+# Set `judge.backend: anthropic_api` to use ANTHROPIC_API_KEY instead.
+ingest:
+  source: file
+stt:
+  - id: whisper-tiny
+    engine: faster_whisper
+    model: tiny
+    device: cpu
+    compute_type: int8
+  - id: whisper-base
+    engine: faster_whisper
+    model: base
+    device: cpu
+    compute_type: int8
+  - id: sensevoice
+    engine: sensevoice
+    model: iic/SenseVoiceSmall
+    device: cpu
+    language: auto
+  - id: reazon
+    engine: reazon_nemo
+    device: cpu
+judge:
+  strategy: llm
+  backend: auto       # auto | claude_code | anthropic_api
+output:
+  sink: console

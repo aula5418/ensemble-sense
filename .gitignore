@@ -1,0 +1,34 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+*.egg
+build/
+dist/
+.eggs/
+
+# Virtualenv
+.venv/
+venv/
+env/
+
+# Model caches
+.cache/
+models/
+*.bin
+*.pt
+*.onnx
+
+# Editors / OS
+.idea/
+.vscode/
+.DS_Store
+
+# Logs / scratch
+logs/
+*.log
+scratch/
+*.wav
+*.mp3
+*.flac
+!tests/fixtures/*.wav

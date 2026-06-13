@@ -1,0 +1,18 @@
+# Minimal config: 2 Whisper sizes + confidence Judge. No heavy deps.
+ingest:
+  source: file
+stt:
+  - id: whisper-tiny
+    engine: faster_whisper
+    model: tiny
+    device: cpu
+    compute_type: int8
+  - id: whisper-base
+    engine: faster_whisper
+    model: base
+    device: cpu
+    compute_type: int8
+judge:
+  strategy: confidence
+output:
+  sink: console
