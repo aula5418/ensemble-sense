@@ -1,8 +1,13 @@
-# ensemble-voice — Design Doc
+# ensemble-sense — Design Doc
 
-A pluggable, multi-STT ensemble pipeline for voice-driven applications.
-Unlike single-STT stacks (WhisperX, Willow, LocalAI), ensemble-voice treats
-**STT selection / arbitration as a first-class layer**.
+A pluggable, **multimodal** ensemble pipeline. Run multiple models of
+the same modality (STT engines today; LLMs, vision/OCR, TTS later) in
+parallel on the same input, then let a configurable **Judge** layer
+decide which output to trust.
+
+Unlike single-model stacks (WhisperX, Willow, LocalAI), ensemble-sense
+treats **model selection / arbitration as a first-class layer** — the
+same graph drives any modality by swapping the engines in the pool.
 
 ---
 
@@ -259,7 +264,7 @@ Engines, Routers, Judges, IntentResolvers, and Output sinks all follow
 the same pattern:
 
 - Implement a Protocol.
-- Register via entry point (`ensemble_voice.plugins`).
+- Register via entry point (`ensemble_sense.plugins`).
 - Declare capabilities + config schema.
 
 ---

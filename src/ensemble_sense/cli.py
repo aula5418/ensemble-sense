@@ -9,7 +9,7 @@ from .pipeline import load_pipeline, source_from_arg
 
 
 def main(argv: list[str] | None = None) -> int:
-    parser = argparse.ArgumentParser(prog="ensemble-voice")
+    parser = argparse.ArgumentParser(prog="ensemble-sense")
     sub = parser.add_subparsers(dest="cmd", required=True)
 
     run = sub.add_parser("run", help="run the pipeline on an audio file")

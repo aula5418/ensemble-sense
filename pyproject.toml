@@ -3,9 +3,9 @@ requires = ["setuptools>=68"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "ensemble-voice"
-version = "0.0.1"
-description = "Pluggable multi-STT ensemble pipeline with a first-class Judge layer."
+name = "ensemble-sense"
+version = "0.0.2"
+description = "Multimodal ensemble pipeline with a first-class Judge layer — runs multiple models in parallel, lets an arbiter pick the best output."
 requires-python = ">=3.10"
 license = { text = "Apache-2.0" }
 dependencies = [
@@ -27,7 +27,7 @@ all = [
 ]
 
 [project.scripts]
-ensemble-voice = "ensemble_voice.cli:main"
+ensemble-sense = "ensemble_sense.cli:main"
 
 [tool.setuptools.packages.find]
 where = ["src"]
